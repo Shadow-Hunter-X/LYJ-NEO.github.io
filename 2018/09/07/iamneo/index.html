@@ -108,26 +108,22 @@
 
 
 
-  <meta name="description" content="Chapter7-定制化的Sqoop连接器由于其通用性,Sqoop从各种关系数据库系统(如 Oracle、MySQL、PostgreSQL 和 Microsoft SQL server) 以及企业数据仓库(如Netezza和Teradata)传输数据。在使用这些数据库系统时,可能会遇到特定于系统供应商的问题。本章将指导您完成常见的安装、连接和语法问题。 7.1直接重写在postgresql的boo">
+  <meta name="keywords" content="test,sqoop,markdown">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iamneo">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/iamneo/index.html">
+<meta property="og:title" content="IAmNeo">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/IAmNeo/index.html">
 <meta property="og:site_name" content="LYJ-NEO">
-<meta property="og:description" content="Chapter7-定制化的Sqoop连接器由于其通用性,Sqoop从各种关系数据库系统(如 Oracle、MySQL、PostgreSQL 和 Microsoft SQL server) 以及企业数据仓库(如Netezza和Teradata)传输数据。在使用这些数据库系统时,可能会遇到特定于系统供应商的问题。本章将指导您完成常见的安装、连接和语法问题。 7.1直接重写在postgresql的boo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/09/07/iamneo/banner.jpg">
-<meta property="og:updated_time" content="2018-09-07T05:22:47.894Z">
+<meta property="og:updated_time" content="2018-09-07T08:20:08.245Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iamneo">
-<meta name="twitter:description" content="Chapter7-定制化的Sqoop连接器由于其通用性,Sqoop从各种关系数据库系统(如 Oracle、MySQL、PostgreSQL 和 Microsoft SQL server) 以及企业数据仓库(如Netezza和Teradata)传输数据。在使用这些数据库系统时,可能会遇到特定于系统供应商的问题。本章将指导您完成常见的安装、连接和语法问题。 7.1直接重写在postgresql的boo">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/07/iamneo/banner.jpg">
+<meta name="twitter:title" content="IAmNeo">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/iamneo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/07/IAmNeo/"/>
 
 
 
@@ -137,7 +133,7 @@
   };
 </script>
 
-  <title>iamneo | LYJ-NEO</title>
+  <title>IAmNeo | LYJ-NEO</title>
   
 
 
@@ -310,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/iamneo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/IAmNeo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="NEO">
@@ -327,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iamneo
+          <h1 class="post-title" itemprop="name headline">IAmNeo
               
             
           </h1>
@@ -352,7 +348,7 @@
                 
               
 
-              <time title="创建时间：2018-09-07 13:20:54 / 修改时间：13:22:47" itemprop="dateCreated datePublished" datetime="2018-09-07T13:20:54+08:00">2018-09-07</time>
+              <time title="创建时间：2018-09-07 16:19:20 / 修改时间：16:20:08" itemprop="dateCreated datePublished" datetime="2018-09-07T16:19:20+08:00">2018-09-07</time>
             
 
             
@@ -362,6 +358,24 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/测试/" itemprop="url" rel="index"><span itemprop="name">测试</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -390,16 +404,7 @@
       
 
       
-        <p></p><h2>Chapter7-定制化的Sqoop连接器</h2><br>由于其通用性,Sqoop从各种关系数据库系统(如 Oracle、MySQL、PostgreSQL 和 Microsoft SQL server) 以及企业数据仓库(如Netezza和Teradata)传输数据。<br>在使用这些数据库系统时,可能会遇到特定于系统供应商的问题。本章将指导您完成常见的安装、连接和语法问题。<p></p>
-<p></p><h2>7.1直接重写在postgresql的bool值</h2><br>PostgreSQL直接导入布尔值作为TRUE或FALSE字符串。如果后续处理期望不同的值, 则需要重写这些默认设置。<p></p>
-<h3>解决方案</h3>
-
-<p>指定额外的参数 <strong>–boolean-true-string</strong> 和 <strong>–boolean-false-string</strong>,以将默认值重写为其他字符串。例如, 将0用于false,1对于true,<br>可以使用以下Sqoop命令:</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sqoop import \</span><br><span class="line">--connect jdbc:postgresql://postgresql.example.com/database \</span><br><span class="line">--username sqoop \</span><br><span class="line">--password sqoop \</span><br><span class="line">--direct \</span><br><span class="line">--table table_with_booleans \</span><br><span class="line">-- \</span><br><span class="line">--boolean-true-string 1 \</span><br><span class="line">--boolean-false-string 0</span><br></pre></td></tr></table></figure>
-<p></p><h3>讨论</h3><br>PostgreSQL直接连接器使用 “复制(选择查询) 到标准输出”子句从数据库中检索数据, 默认情况下, 在从布尔值和位列导入数据时将使用字符串常量TRUE和<br>FALSE。PostgreSQL直接连接器只支持导入并委托导出到nondirect JDBC连接器。因此, 这两个参数 <strong>–boolean-true-string</strong> 和<br><strong>–boolean-falsestring</strong> 能够只适用于导入,在导出操作过程中将被忽略<p></p>
-<p><img src="/2018/09/07/iamneo/banner.jpg" alt=""></p>
-
+        
       
     </div>
 
@@ -417,27 +422,21 @@
 
     <footer class="post-footer">
       
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/09/06/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
+        <div class="post-tags">
+          
+            <a href="/tags/test/" rel="tag"># test</a>
+          
+            <a href="/tags/sqoop/" rel="tag"># sqoop</a>
+          
+            <a href="/tags/markdown/" rel="tag"># markdown</a>
+          
         </div>
+      
+
+      
+      
+      
+
       
 
       
@@ -479,17 +478,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -508,14 +498,44 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -538,22 +558,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Chapter7-定制化的Sqoop连接器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">7.1直接重写在postgresql的bool值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">讨论</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
