@@ -305,6 +305,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/python-snakebite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NEO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fly.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYJ-NEO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/11/python-snakebite/" itemprop="url">
+                  python-snakebite
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-11 11:19:38 / 修改时间：11:21:48" itemprop="dateCreated datePublished" datetime="2018-09-11T11:19:38+08:00">2018-09-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tec/" itemprop="url" rel="index"><span itemprop="name">Tec</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2>Python-Snakebite库</h2>
+
+<p>Snakebite是由Spotify创建的python包, 它提供了python客户端库,运行以编程方式从Python应用程序访问HDFS。客户端库使用 protobuf 消息直接与 NameNode 通信。Snakebite还包括一个基于客户端库的 HDFS 的命令行界面。</p>
+<p>本节介绍如何安装和配置SnakeBite包。对Snakebite的客户端库进行了详细的解释, 其中有多个示例, Snakebite的内置CLI被作为python非必要hdfs命令工具而介绍。</p>
+<h3>安装</h3>
+
+<p>Snakebite目前只支持Python2,需要Python-protobuf最低版本为2.4.1;python3目前还不支持。Snakebite通过PyPI进行分发，可以使用pip进行安装:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install snakebite</span><br></pre></td></tr></table></figure>
+<h3>客户端库</h3>
+
+<p>客户端库是用 Python 编写的, 使用 protobuf 消息, 并实现 Hadoop RPC 协议来与 NameNode 通信。这使得 Python 应用程序可以直接与 HDFS 通信, 而不必对 HDFS dfs 进行系统调用。</p>
+<h4>列举目录信息</h4>
+
+<ul>
+<li>Example 1-1.python/HDFS/list_directory.py<br>使用Snakebite客户端列举在HDFS根目录下的信息:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from snakebite.client import Client</span><br><span class="line">client = Client(&apos;localhost&apos;, 9000)</span><br><span class="line">for x in client.ls([&apos;/&apos;]):</span><br><span class="line">    print x</span><br></pre></td></tr></table></figure>
+<p>以上代码中最重要的行，也是其他使用Snakebite客户端的程序中都需要的是 创建客户端到HDFS的NameNode的连接:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client = Client(&apos;localhost&apos;, 9000)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/11/python-snakebite/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/The-One-Only-One/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -351,7 +531,7 @@
                 
               
 
-              <time title="创建时间：2018-09-10 18:42:06 / 修改时间：18:45:44" itemprop="dateCreated datePublished" datetime="2018-09-10T18:42:06+08:00">2018-09-10</time>
+              <time title="创建时间：2018-09-10 18:42:06 / 修改时间：18:51:22" itemprop="dateCreated datePublished" datetime="2018-09-10T18:42:06+08:00">2018-09-10</time>
             
 
             
@@ -496,7 +676,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -511,7 +691,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -526,7 +708,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
