@@ -108,20 +108,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LYJ-NEO">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Hadoop数据流  hadoop流是一个实用工具,附带了Hadoop分布式功能, 允许创建任何可执的mapper/reducer的MapReduce作业。Hadoop流实用程序使Python、shell脚本或任何其他语言都可以用作mapper、reducer或二者。 工作机制mapper和reducer都是从标准输入一行一行读取、输出到标准输出。Hadoop流程序创建MapReduce作业,将作">
+<meta name="keywords" content="python,BigData">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop Streaming with python">
+<meta property="og:url" content="http://yoursite.com/2018/09/12/Hadoop-Streaming-with-python/index.html">
 <meta property="og:site_name" content="LYJ-NEO">
+<meta property="og:description" content="Hadoop数据流  hadoop流是一个实用工具,附带了Hadoop分布式功能, 允许创建任何可执的mapper/reducer的MapReduce作业。Hadoop流实用程序使Python、shell脚本或任何其他语言都可以用作mapper、reducer或二者。 工作机制mapper和reducer都是从标准输入一行一行读取、输出到标准输出。Hadoop流程序创建MapReduce作业,将作">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-12T09:18:55.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LYJ-NEO">
+<meta name="twitter:title" content="Hadoop Streaming with python">
+<meta name="twitter:description" content="Hadoop数据流  hadoop流是一个实用工具,附带了Hadoop分布式功能, 允许创建任何可执的mapper/reducer的MapReduce作业。Hadoop流实用程序使Python、shell脚本或任何其他语言都可以用作mapper、reducer或二者。 工作机制mapper和reducer都是从标准输入一行一行读取、输出到标准输出。Hadoop流程序创建MapReduce作业,将作">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/12/Hadoop-Streaming-with-python/"/>
 
 
 
@@ -131,7 +136,7 @@
   };
 </script>
 
-  <title>LYJ-NEO</title>
+  <title>Hadoop Streaming with python | LYJ-NEO</title>
   
 
 
@@ -178,8 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,7 +224,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
@@ -288,9 +292,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -322,11 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/12/Hadoop-Streaming-with-python/" itemprop="url">
-                  Hadoop Streaming with python
-                </a>
+          <h1 class="post-title" itemprop="name headline">Hadoop Streaming with python
               
             
           </h1>
@@ -407,9 +407,7 @@
       
 
       
-        
-          
-            <h2>Hadoop数据流</h2>
+        <h2>Hadoop数据流</h2>
 
 <p>hadoop流是一个实用工具,附带了Hadoop分布式功能, 允许创建任何可执的mapper/reducer的MapReduce作业。Hadoop流实用程序使Python、shell脚本或任何其他语言都可以用作mapper、reducer或二者。</p>
 <h3>工作机制</h3><br>mapper和reducer都是从标准输入一行一行读取、输出到标准输出。Hadoop流程序创建MapReduce作业,将作业提交到群集,并监视其进度, 直到完成。初始化映射程序时, 每个映射任务将指定的可执行文件作为单独的进程启动。mapper读取输入文件, 并通过stdin向可执行文件显示每一行。在可执行文件处理每一行输入之后, mapper从标准输出中收集结果, 并将每一行转换为键值对。该键由第一个 tab 字符之前行的部分组成, 该值由第一个制表符后面的行部分组成。如果行不包含制表符, 则整行被视为键, 值为 null。<br><br>在初始化reducer时,每个reducer任务都将指定的可执行文件作为单独的进程启动。reducer将输入键值对转换行通过标准输入传递给可执行程序。reducer从标准输出中收集可执行文件结果, 并将每一行转换为键值对。与mapper类似,可执行文件通过tab制表符分隔键和值来指定键值对。<br><br><h3>python程序示例</h3>
@@ -465,8 +463,6 @@
 </tbody>
 </table>
 
-          
-        
       
     </div>
 
@@ -484,381 +480,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/python-snakebite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NEO">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/fly.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LYJ-NEO">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/11/python-snakebite/" itemprop="url">
-                  python-snakebite
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-11 11:19:38" itemprop="dateCreated datePublished" datetime="2018-09-11T11:19:38+08:00">2018-09-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-12 17:18:42" itemprop="dateModified" datetime="2018-09-12T17:18:42+08:00">2018-09-12</time>
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tec/" itemprop="url" rel="index"><span itemprop="name">Tec</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/python/" rel="tag"># python</a>
           
-
+            <a href="/tags/BigData/" rel="tag"># BigData</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2>Python-Snakebite库</h2>
-
-<p>Snakebite是由Spotify创建的python包, 它提供了python客户端库,运行以编程方式从Python应用程序访问HDFS。客户端库使用 protobuf 消息直接与 NameNode 通信。Snakebite还包括一个基于客户端库的 HDFS 的命令行界面。</p>
-<p>本节介绍如何安装和配置SnakeBite包。对Snakebite的客户端库进行了详细的解释, 其中有多个示例, Snakebite的内置CLI被作为python非必要hdfs命令工具而介绍。</p>
-<h3>安装</h3>
-
-<p>Snakebite目前只支持Python2,需要Python-protobuf最低版本为2.4.1;python3目前还不支持。Snakebite通过PyPI进行分发，可以使用pip进行安装:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install snakebite</span><br></pre></td></tr></table></figure>
-<h3>客户端库</h3>
-
-<p>客户端库是用 Python 编写的, 使用 protobuf 消息, 并实现 Hadoop RPC 协议来与 NameNode 通信。这使得 Python 应用程序可以直接与 HDFS 通信, 而不必对 HDFS dfs 进行系统调用。</p>
-<h4>列举目录信息</h4>
-
-<ul>
-<li>Example 1-1.python/HDFS/list_directory.py<br>使用Snakebite客户端列举在HDFS根目录下的信息:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from snakebite.client import Client</span><br><span class="line">client = Client(&apos;localhost&apos;, 9000)</span><br><span class="line">for x in client.ls([&apos;/&apos;]):</span><br><span class="line">    print x</span><br></pre></td></tr></table></figure>
-<p>以上代码中最重要的行，也是其他使用Snakebite客户端的程序中都需要的是 创建客户端到HDFS的NameNode的连接:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client = Client(&apos;localhost&apos;, 9000)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/11/python-snakebite/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/11/python-snakebite/" rel="next" title="python-snakebite">
+                <i class="fa fa-chevron-left"></i> python-snakebite
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/The-One-Only-One/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NEO">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/fly.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LYJ-NEO">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/10/The-One-Only-One/" itemprop="url">
-                  The One,Only One
-                </a>
-              
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-09-10 18:42:06" itemprop="dateCreated datePublished" datetime="2018-09-10T18:42:06+08:00">2018-09-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-09-12 09:43:08" itemprop="dateModified" datetime="2018-09-12T09:43:08+08:00">2018-09-12</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/left/" itemprop="url" rel="index"><span itemprop="name">left</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>the One , Lost in the sea</p>
-<p><img src="/2018/09/10/The-One-Only-One/window.jpg" alt=""></p>
-<p>the One , Lost in the night</p>
-<p><img src="/2018/09/10/The-One-Only-One/night.jpg" alt=""></p>
-<p>the One , Lost in the blue shadow wall</p>
-<p><img src="/2018/09/10/The-One-Only-One/wall.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -868,14 +521,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -896,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -978,6 +641,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Hadoop数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">工作机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">python程序示例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1115,6 +794,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
