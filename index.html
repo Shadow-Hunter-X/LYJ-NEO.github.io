@@ -305,10 +305,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/Hadoop-Streaming-with-python/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/Hadoop-Data-Flow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NEO">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/fly.jpg">
     </span>
@@ -324,8 +324,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/12/Hadoop-Streaming-with-python/" itemprop="url">
-                  Hadoop Streaming with python
+                <a class="post-title-link" href="/2018/09/12/Hadoop-Data-Flow/" itemprop="url">
+                  Hadoop Data Flow
                 </a>
               
             
@@ -351,12 +351,24 @@
                 
               
 
-              <time title="创建时间：2018-09-12 17:17:41 / 修改时间：17:18:55" itemprop="dateCreated datePublished" datetime="2018-09-12T17:17:41+08:00">2018-09-12</time>
+              <time title="创建时间：2018-09-12 17:53:14" itemprop="dateCreated datePublished" datetime="2018-09-12T17:53:14+08:00">2018-09-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-12 17:53:14" itemprop="dateModified" datetime="2018-01-12T17:53:14+08:00">2018-01-12</time>
               
             
           </span>
@@ -408,64 +420,197 @@
 
       
         
+          <p>MapReduce 是一种编程模型, 它通过将工作划分为独立的任务, 并在一组计算机上并行执行任务, 从而使大量数据得以处理和生成。MapReduce 编程风格是由函数式编程构造映射和减少所激发的, 通常用于处理数据列表。在高级别, 每个MapReduce程序将输入数据元素列表转换为输出数据元素列表两次, 一次在映射阶段, 一次在还原阶段。</p>
+<p>本章首先介绍MapReduce编程模型,并描述数据如何流经模型的不同阶段。示例将展示如何使用python编写MapReduce作业可。</p>
+<p></p><h2>数据流</h2><br>MapReduce 框架由三个主要阶段组成:map,shuffle和sort,reduce。本节介绍每个阶段。<p></p>
+<h3>map映射阶段</h3><br>MapReduce 应用程序的第一个阶段是映射阶段。在映射阶段中, 函数(称为映射器)处理一系列键值对。映射程序依次处理每个键值对，生成0个或多个键值对。<br><br><img src="/2018/09/12/Hadoop-Data-Flow/2-1MapReduce.png" alt=""><br><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/12/Hadoop-Data-Flow/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/Hadoop-Streaming-with-python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fly.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYJ-NEO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/12/Hadoop-Streaming-with-python/" itemprop="url">
+                  Hadoop Streaming with python
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-12 17:17:41" itemprop="dateCreated datePublished" datetime="2018-09-12T17:17:41+08:00">2018-09-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-12 17:17:41" itemprop="dateModified" datetime="2018-08-12T17:17:41+08:00">2018-08-12</time>
+              
+            
+          </span>
+
           
-            <h2>Hadoop数据流</h2>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tec/" itemprop="url" rel="index"><span itemprop="name">Tec</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2>Hadoop数据流</h2>
 
 <p>hadoop流是一个实用工具,附带了Hadoop分布式功能, 允许创建任何可执的mapper/reducer的MapReduce作业。Hadoop流实用程序使Python、shell脚本或任何其他语言都可以用作mapper、reducer或二者。</p>
 <h3>工作机制</h3><br>mapper和reducer都是从标准输入一行一行读取、输出到标准输出。Hadoop流程序创建MapReduce作业,将作业提交到群集,并监视其进度, 直到完成。初始化映射程序时, 每个映射任务将指定的可执行文件作为单独的进程启动。mapper读取输入文件, 并通过stdin向可执行文件显示每一行。在可执行文件处理每一行输入之后, mapper从标准输出中收集结果, 并将每一行转换为键值对。该键由第一个 tab 字符之前行的部分组成, 该值由第一个制表符后面的行部分组成。如果行不包含制表符, 则整行被视为键, 值为 null。<br><br>在初始化reducer时,每个reducer任务都将指定的可执行文件作为单独的进程启动。reducer将输入键值对转换行通过标准输入传递给可执行程序。reducer从标准输出中收集可执行文件结果, 并将每一行转换为键值对。与mapper类似,可执行文件通过tab制表符分隔键和值来指定键值对。<br><br><h3>python程序示例</h3>
 
 <p>为了演示hadoop流实用程序如何在hadoop群集上以MapReduce应用程序的方式运行Python, WordCount应用程序可以由两个Python程序实现:mapper.py<br>和reducer.py</p>
-<p>mapper.py是在WordCount的映射阶段实现逻辑的Python程序。它从标准输入读取数据, 将行拆分为单词, 并将每个单词的中间计数输出到标准输出。example2-1实现mapper.py的逻辑:</p>
-<ul>
-<li>Example 2-1.python/MapReduce/HadoopStreaming/mapper.py</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"># Read each line from stdin</span><br><span class="line">for line in sys.stdin:</span><br><span class="line">    # Get the words in each line</span><br><span class="line">    words = line.split()</span><br><span class="line"></span><br><span class="line"># Generate the count for each word</span><br><span class="line">for word in words:</span><br><span class="line">    # Write the key-value pair to stdout to be processed by</span><br><span class="line">    # the reducer.</span><br><span class="line">    # The key is anything before the first tab character and the</span><br><span class="line">    #value is anything after the first tab character.</span><br><span class="line">    print &apos;&#123;0&#125;\t&#123;1&#125;&apos;.format(word, 1)</span><br></pre></td></tr></table></figure>
-<p>reducer.py是WordCount的聚合阶段实现逻辑的Python程序，通过标准输入读取Mapper生成的数据，统计单词的词频，并将数据写入到标准输出。</p>
-<ul>
-<li>Example 2-2.python/MapReduce/HadoopStreaming/reducer.py</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">curr_word = None</span><br><span class="line">curr_count = 0</span><br><span class="line"></span><br><span class="line"># Process each key-value pair from the mapper</span><br><span class="line">for line in sys.stdin:</span><br><span class="line">    # Get the key and value from the current line</span><br><span class="line">    word, count = line.split(&apos;\t&apos;)</span><br><span class="line"></span><br><span class="line">    # Convert the count to an int</span><br><span class="line">    count = int(count)</span><br><span class="line"></span><br><span class="line">    # If the current word is the same as the previous word,</span><br><span class="line">    # increment its count, otherwise print the words count</span><br><span class="line">    # to stdout</span><br><span class="line">    if word == curr_word:</span><br><span class="line">        curr_count += count</span><br><span class="line">    else:</span><br><span class="line">        # Write word and its number of occurrences as a key-value</span><br><span class="line">        # pair to stdout</span><br><span class="line">        if curr_word:</span><br><span class="line">            print &apos;&#123;0&#125;\t&#123;1&#125;&apos;.format(curr_word, curr_count)</span><br><span class="line">        curr_word = word</span><br><span class="line"></span><br><span class="line">        curr_count = count</span><br><span class="line"></span><br><span class="line">    # Output the count for the last word</span><br><span class="line">    if curr_word == word:</span><br><span class="line">        print &apos;&#123;0&#125;\t&#123;1&#125;&apos;.format(curr_word, curr_count)</span><br></pre></td></tr></table></figure>
-<p>在尝试执行代码之前,请确mapper.py和reducer.py文件具有执行权限。以下命令将对python脚本赋予执行权限:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod a+x mapper.py reducer.py</span><br></pre></td></tr></table></figure></p>
-<p>还要确保每个文件的第一行包含Python的正确路径。第一行的路径说明能让mapper.py和reducer.py能独立运行。对于#!/usr/bin/env python 在绝大多数系统中都可以使用，但是如果其不起作用，使用系统上python路径来代替<br>/usr/bin/env python。</p>
-<p>要在本地测试Python程序,将它们作为MapReduce作业运行, 可以使用echo和sort命令运行它们。强烈建议在对所有程序进行本地测试在上Hadoop群集之前。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ echo &apos;jack be nimble jack be quick&apos; | ./mapper.py</span><br><span class="line">| sort -t 1 | ./reducer.py</span><br><span class="line">be 2</span><br><span class="line">jack 2</span><br><span class="line">nimble 1</span><br><span class="line">quick 1</span><br></pre></td></tr></table></figure>
-<p>一旦mapper和reducer程序成功测试完毕，就可以通过Hadoop Streaming进行MapReduce计算，具体的执行命令如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ $HADOOP_HOME/bin/hadoop jar</span><br><span class="line">$HADOOP_HOME/mapred/contrib/streaming/hadoop-streaming*.jar \</span><br><span class="line">-files mapper.py,reducer.py \</span><br><span class="line">-mapper mapper.py \</span><br><span class="line">-reducer reducer.py \</span><br><span class="line">-input /user/hduser/input.txt -output /user/hduser/output</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Hadoop Streaming的相关选项</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-file</td>
-<td>要复制到 MapReduce 群集的文件的分隔列表</td>
-</tr>
-<tr>
-<td>-mapper</td>
-<td>作为mapper 程序执行</td>
-</tr>
-<tr>
-<td>-reducer</td>
-<td>作为reducer程序执行</td>
-</tr>
-<tr>
-<td>-input</td>
-<td>在Map阶段DFS输入路径</td>
-</tr>
-<tr>
-<td>-output</td>
-<td>在reduce阶段DFS输出路径</td>
-</tr>
-</tbody>
-</table>
-
-          
+<p>mapper.py是在WordCount的映射阶段实现逻辑的Python程序。它从标准输入读取数据, 将行拆分为单词, 并将每个单词的中间计数输出到标准输出。example2-1实现mapper.py的逻辑:<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/12/Hadoop-Streaming-with-python/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -520,7 +665,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/11/python-snakebite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NEO">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/fly.jpg">
     </span>
@@ -712,7 +857,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/The-One-Only-One/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NEO">
+      <meta itemprop="name" content="">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/fly.jpg">
     </span>
@@ -772,7 +917,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-12 09:43:08" itemprop="dateModified" datetime="2018-09-12T09:43:08+08:00">2018-09-12</time>
+                <time title="修改时间：2017-04-01 18:42:06" itemprop="dateModified" datetime="2017-04-01T18:42:06+08:00">2017-04-01</time>
               
             
           </span>
@@ -903,9 +1048,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/fly.jpg"
-                alt="NEO" />
+                alt="" />
             
-              <p class="site-author-name" itemprop="name">NEO</p>
+              <p class="site-author-name" itemprop="name"></p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -916,7 +1061,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -996,7 +1141,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">NEO</span>
+  <span class="author" itemprop="copyrightHolder"></span>
 
   
 
