@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Python-mrjob库的安装和使用  mrjob是一个Python MapReduce库, 由yelp创建, 封装了Hadoop streaming,允许MapReduce应用程序以更python的方式编写。mrjob允许用纯Python编写多步骤MapReduce作业。MapReduce用 mrjob编写的作业可以在本地进行测试, 在Hadoop群集上运行,或者使用亚马逊弹性云(EMR)中运">
+<meta name="keywords" content="python,BigData">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-mrjob库的安装和使用">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/Python-mrjob库的安装和使用/index.html">
+<meta property="og:site_name" content="LYJ-NEO">
+<meta property="og:description" content="Python-mrjob库的安装和使用  mrjob是一个Python MapReduce库, 由yelp创建, 封装了Hadoop streaming,允许MapReduce应用程序以更python的方式编写。mrjob允许用纯Python编写多步骤MapReduce作业。MapReduce用 mrjob编写的作业可以在本地进行测试, 在Hadoop群集上运行,或者使用亚马逊弹性云(EMR)中运">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-13T05:42:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python-mrjob库的安装和使用">
+<meta name="twitter:description" content="Python-mrjob库的安装和使用  mrjob是一个Python MapReduce库, 由yelp创建, 封装了Hadoop streaming,允许MapReduce应用程序以更python的方式编写。mrjob允许用纯Python编写多步骤MapReduce作业。MapReduce用 mrjob编写的作业可以在本地进行测试, 在Hadoop群集上运行,或者使用亚马逊弹性云(EMR)中运">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/Python-mrjob库的安装和使用/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Python-mrjob库的安装和使用 | LYJ-NEO</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LYJ-NEO</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Gone With The Wind</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/Python-mrjob库的安装和使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fly.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYJ-NEO">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python-mrjob库的安装和使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-13 13:42:18" itemprop="dateCreated datePublished" datetime="2018-09-13T13:42:18+08:00">2018-09-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-13 13:42:18" itemprop="dateModified" datetime="2018-08-13T13:42:18+08:00">2018-08-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tec/" itemprop="url" rel="index"><span itemprop="name">Tec</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>Python-mrjob库的安装和使用</h2>
+
+<p>mrjob是一个Python MapReduce库, 由yelp创建, 封装了Hadoop streaming,允许MapReduce应用程序以更python的方式编写。mrjob允许用纯Python编写多步骤MapReduce作业。MapReduce用 mrjob编写的作业可以在本地进行测试, 在Hadoop群集上运行,或者使用亚马逊弹性云(EMR)中运行。</p>
+<p>使用mrjob编写MapReduce有很多的好处:</p>
+<ul>
+<li>mrjob 目前是一个非常活跃的发展框架, 每个星期都有提交多个提交。</li>
+<li>mrjob 有大量文档,比支持Hadoop上的Python的任何其他框架或库都多。</li>
+<li>mrjob 应用程序可以在不安装 hadoop 的情况下执行和测试, 在部署到 hadoop 群集之前启用开发和测试。</li>
+<li>mrjob 允许在单个类中写入 MapReduce 应用程序, 而不是为mapper和reducer编写单独的程。</li>
+</ul>
+<p>虽然 mrjob 是一个伟大的解决方案, 它确实有它的缺点。mrjob 是简化的, 因此它不会给出与其他 api 提供的 Hadoop相同的访问级别。mrjob不使用typedbytes,因此其他库可能更快。</p>
+<h3>安装</h3><br>mrjob 的安装简单;可以使用pip进行安装:<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install mrjob</span><br></pre></td></tr></table></figure><br><br>或从源码安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python setup.py install</span><br></pre></td></tr></table></figure><br><br><h3>使用mrjob编写WordCount</h3>
+
+<ul>
+<li>Example 2-3 python/MapReduce/mrjob/word_count.py</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">from mrjob.job import MRJob</span><br><span class="line">class MRWordCount(MRJob):</span><br><span class="line"></span><br><span class="line">    def mapper(self, _, line):</span><br><span class="line">        for word in line.split():</span><br><span class="line">        yield(word, 1)</span><br><span class="line"></span><br><span class="line">    def reducer(self, word, counts):</span><br><span class="line">        yield(word, sum(counts))</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    MRWordCount.run()</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>要在本地运行 mrjob, 唯一需要的是文本正文。要在本地运行作业并计算名为input.txt的文件中单词的频率, 请使用以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python word_count.py input.txt</span><br></pre></td></tr></table></figure>
+<p>输出取决于输入文件的内容, 但应该和以下类似:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;be&quot; 2</span><br><span class="line">&quot;jack&quot; 2</span><br><span class="line">&quot;nimble&quot; 1</span><br><span class="line">&quot;quick&quot; 1</span><br></pre></td></tr></table></figure>
+<p></p><h3>处理过程</h3><br>MapReduce作业被定义为类MRWordCount。在mrjob库中,从mrjob继承的类包含定义MapReduce作业步骤的方法。mrjob应用程序中的步骤是mapper,commbiner,reducer。继承MRJob的类只需要定义以下步骤之一:<p></p>
+<ul>
+<li>mapper()</li>
+</ul>
+<p>mapper()方法为MapReduce作业定义映射程序。它以键和值作为参数,并生成元组(output_key、output_value)。在上述WordCount示例中,mapper忽略了输入键并拆分输入值以生成单词和计数。</p>
+<ul>
+<li>combiner()</li>
+</ul>
+<p>combiner()方法定义MapReduce作业的组合。combiner()是一个过程,在mapper后运行，在reducer前运行。它接收mapper发出的所有数据作为输入,并将该输出发送到reducer。该combiner的输入是一个键,由mapper生成,并且是一个值,它产生的所有值都由一个对应于该键的mapper产生。combiner生成 (output_key, output_value) 元组作为输出。</p>
+<ul>
+<li>reducer()</li>
+</ul>
+<p>reducer()方法为MapReduce作业定义reducer。它需要一个键和一个值的迭代器作为参数,并生成元组 (output_key, output_value)。在例2-4 中,reducer对每个键的值求和, 表示输入中的单词频率。</p>
+<p>用mrjob库编写的MapReduce作业的调用:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    MRWordCount.run()</span><br></pre></td></tr></table></figure>
+<p></p><h3>执行mrjob</h3><br>使用mrjob执行MapReduce应用程序类似于执行其他Python程序。在命令行必须包含mrjob应用程序的名称和输入文件:<p></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python mr_job.py input.txt</span><br></pre></td></tr></table></figure>
+<p>默认情况下，mrjob将数据到标准输出。可以向mrjob传递多个文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python mr_job.py input1.txt input2.txt input3.txt</span><br></pre></td></tr></table></figure>
+<p>mrjob也可以处理通过标准输入的数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python mr_job.py &lt; input.txt</span><br></pre></td></tr></table></figure>
+<p>默认情况下,mrjob先在本开发调试地运行,然后在提交到Hadoop群集上。改变任务的执行方式，指定 <strong>-r/–runner</strong> 的选项，以下列表展示了不同选项的作用:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r inline</td>
+<td>(默认),python 单进程执行</td>
+</tr>
+<tr>
+<td>-r local</td>
+<td>多python进程，模拟一些Haddoop的特征</td>
+</tr>
+<tr>
+<td>-r hadoop</td>
+<td>在Hadoop集群上执行</td>
+</tr>
+<tr>
+<td>-r emr</td>
+<td>在Amzon弹性云上执行</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>使用”runner”选项,可以在Hadoop群集上运行mrjob程序,并从HDFS中指定输入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python mr_job.py -r hadoop hdfs://input/input.txt</span><br></pre></td></tr></table></figure>
+<p>mrjob应用程序也允许在Amzon弹性云上执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python mr_job.py -r emr s3://input-bucket/input.txt</span><br></pre></td></tr></table></figure>
+<p></p><h3>计算最高工资实例</h3><br>Example2-5 使用mrjob计算员工的的最高工资和总支出，使用的测试数据集是2014年巴尔的摩薪资情况：<p></p>
+<ul>
+<li>Example 2-5. python/MapReduce/mrjob/top_salary.py</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">from mrjob.job import MRJob</span><br><span class="line">from mrjob.step import MRStep</span><br><span class="line">import csv</span><br><span class="line">cols = &apos;Name,JobTitle,AgencyID,Agency,HireDate,AnnualSalary,GrossPay&apos;.split(&apos;,&apos;)</span><br><span class="line">class salarymax(MRJob):</span><br><span class="line">	def mapper(self, _, line):</span><br><span class="line">		# Convert each line into a dictionary</span><br><span class="line">		row = dict(zip(cols, [ a.strip() for a in csv.reader([line]).next()]))</span><br><span class="line">		</span><br><span class="line">		# Yield the salary</span><br><span class="line">		yield &apos;salary&apos;, (float(row[&apos;AnnualSalary&apos;][1:]), line)</span><br><span class="line">		</span><br><span class="line">		# Yield the gross pay</span><br><span class="line">		try:</span><br><span class="line">			yield &apos;gross&apos;, (float(row[&apos;GrossPay&apos;][1:]), line)</span><br><span class="line">	    except ValueError:</span><br><span class="line">			self.increment_counter(&apos;warn&apos;, &apos;missing gross&apos;, 1)</span><br><span class="line"></span><br><span class="line">    def reducer(self, key, values):</span><br><span class="line">        topten = []</span><br><span class="line">        # For &apos;salary&apos; and &apos;gross&apos; compute the top 10</span><br><span class="line">        for p in values:</span><br><span class="line">            topten.append(p)</span><br><span class="line">            topten.sort()</span><br><span class="line">            topten = topten[-10:]</span><br><span class="line">        for p in topten:</span><br><span class="line">            yield key, p</span><br><span class="line"></span><br><span class="line">    combiner = reducer</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    salarymax.run()</span><br></pre></td></tr></table></figure>
+<p>使用以下命令在Hadoop集群上执行mrjob程序:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python top_salary.py -r hadoop hdfs:///user/hduser/input/salaries.csv</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/BigData/" rel="tag"># BigData</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/12/Hadoop-Data-Flow/" rel="next" title="Hadoop Data Flow">
+                <i class="fa fa-chevron-left"></i> Hadoop Data Flow
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fly.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Python-mrjob库的安装和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">使用mrjob编写WordCount</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">执行mrjob</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">计算最高工资实例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
